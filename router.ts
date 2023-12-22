@@ -19,7 +19,7 @@ const router = Router();
 
 // Handle plan
 router.post("/paymount/plan", NewPlan.execute)
-router.get("/paymount/play/all", AllPlan.execute)
+router.get("/paymount/plan/all", AllPlan.execute)
 
 
 // Handle send form
