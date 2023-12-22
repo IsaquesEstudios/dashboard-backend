@@ -25,10 +25,6 @@ class CampanhasServices {
       name: name,
       email: email,
       phone: phone,
-      state: state,
-      city: city,
-      branches: branches,
-      companyName: companyName,
       message: message
     },
       function (err, data) {

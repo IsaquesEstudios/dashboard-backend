@@ -23,8 +23,8 @@ router.get("/paymount/plan/all", AllPlan.execute)
 
 
 // Handle send form
-router.post("/form/send-form-campanha", SendFormCampanha.execute);
 router.post("/form/sim-company-parceria", SendFormSimCompanySociety.execute);
 router.post("/form/sim-company", SendFormSimCompany.execute);
+router.post("/form/send-form-campanha", SendFormCampanha.execute);
 
 export { router };
