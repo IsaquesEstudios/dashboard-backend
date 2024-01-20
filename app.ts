@@ -15,14 +15,6 @@ DotEnv.config();
 
 app.use(router);
 
-// app.get("/mercado_pago/planos", async (req: Request, res: Response) => {
-//   const b: any = await MercadoPagoApi.get("preapproval_plan/search");
-
-//   const c = b.data.results;
-
-//   res.status(201).json({ c });
-// });
-
 app.listen(process.env.PORT || 3333, () => {
   console.log("rodando");
 });

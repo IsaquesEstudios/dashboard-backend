@@ -42,8 +42,8 @@ class CreateNewPlanServices {
 
     const NewPlan = await MercadoPagoApi.post("/preapproval_plan", {
       auto_recurring: {
-        frequency: auto_recurring.frequency,
-        frequency_type: auto_recurring.frequency_type,
+        frequency: 1,
+        frequency_type: "months",
         repetitions: auto_recurring.repetitions,
         billing_day: auto_recurring.billing_day,
         billing_day_proportional: auto_recurring.billing_day_proportional,
@@ -55,18 +55,6 @@ class CreateNewPlanServices {
         currency_id: auto_recurring.currency_id,
       },
       back_url: back_url,
-      payment_methods_allowed: {
-        payment_types: [
-          {
-            id: "credit_card",
-          },
-        ],
-        payment_methods: [
-          {
-            id: "bolbradesco",
-          },
-        ],
-      },
       reason: reason,
     });
 
