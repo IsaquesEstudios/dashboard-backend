@@ -6,8 +6,6 @@ class CreateNewPlanController {
     const { auto_recurring, back_url, payment_methods_allowed, reason } =
       req.body;
 
-      console.log(req.body)
-
     const createNewPlanServices = new CreateNewPlanServices();
 
     const { data } = await createNewPlanServices.handle({

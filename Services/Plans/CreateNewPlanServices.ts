@@ -47,10 +47,6 @@ class CreateNewPlanServices {
         repetitions: auto_recurring.repetitions,
         billing_day: auto_recurring.billing_day,
         billing_day_proportional: auto_recurring.billing_day_proportional,
-        free_trial: {
-          frequency: auto_recurring.free_trial.frequency,
-          frequency_type: auto_recurring.free_trial.frequency_type,
-        },
         transaction_amount: auto_recurring.transaction_amount,
         currency_id: auto_recurring.currency_id,
       },

@@ -12,38 +12,42 @@ import { ShowAllPaymentController } from "./Controller/payment/ShowAllPaymentCon
 import { ShowPaymentServices } from "./Services/payment/ShowPaymentServices";
 import { ShowPaymentController } from "./Controller/payment/ShowPaymentController";
 
+import "./Controller/test/test-realtime";
+
+
+// TestRealTime()
 //authenticated
-const ShowUser = new ShowUserController()
+const ShowUser = new ShowUserController();
 
 //paymount
-const NewPaymount = new CreateNewPaymentController()
-const AllPayment = new ShowAllPaymentController()
-const Payment = new ShowPaymentController()
+const NewPaymount = new CreateNewPaymentController();
+const AllPayment = new ShowAllPaymentController();
+const Payment = new ShowPaymentController();
 
 // Handle plan
-const NewPlan = new CreateNewPlanController()
-const AllPlan = new ShowAllPlansController()
-const Plan = new ShowPlanController()
+const NewPlan = new CreateNewPlanController();
+const AllPlan = new ShowAllPlansController();
+const Plan = new ShowPlanController();
 
 // Handle Send Form
 const SendFormCampanha = new SendFormCampanhaController();
-const SendFormSimCompany = new SendFormSimCompanyController()
-const SendFormSimCompanySociety = new SendFormSimCompanySocietyController()
+const SendFormSimCompany = new SendFormSimCompanyController();
+const SendFormSimCompanySociety = new SendFormSimCompanySocietyController();
 
 const router = Router();
 
 // Authenticate
-router.get("/auth/show", ShowUser.execute)
+router.get("/auth/show", ShowUser.execute);
 
 // New Payment
-router.post("/payment/create", NewPaymount.execute)
-router.get("/payment/show/all", AllPayment.execute)
-router.get("/payment/show/:id", Payment.execute)
+router.post("/payment/create", NewPaymount.execute);
+router.get("/payment/show/all", AllPayment.execute);
+router.get("/payment/show/:id", Payment.execute);
 
 // Handle plan
-router.post("/payment/plan", NewPlan.execute)
-router.get("/payment/plan/all", AllPlan.execute)
-router.get("/payment/plan/:id", Plan.execute)
+router.post("/payment/plan", NewPlan.execute);
+router.get("/payment/plan/all", AllPlan.execute);
+router.get("/payment/plan/:id", Plan.execute);
 
 // Handle send form
 router.post("/form/sim-company-parceria", SendFormSimCompanySociety.execute);
