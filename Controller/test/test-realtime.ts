@@ -17,50 +17,50 @@ interface TiConnectedServicesType {
   message: string;
 }
 
-setInterval(() => {
-    async function handle() {
-      ejs.renderFile(
-        __dirname + "/../../Template/Campanhas.ejs",
-        {
-          domain: "teste",
-          name: "teste",
-          email: "matteus.isaque28@gmail.com",
-          phone: "teste",
-          message: "message",
-        },
-        function (err: any, data: any) {
-          if (err) {
-            console.log(err);
-          } else {
-            let transporter = node.createTransport({
-              host: "smtp.hostinger.com",
-              port: 465,
-              // ssl: true,
-              tls: true,
-              auth: {
-                user: "formulario@isaquesestudios.com",
-                pass: "Mediterranio10@",
-              },
-            });
+// setInterval(() => {
+//     async function handle() {
+//       ejs.renderFile(
+//         __dirname + "/../../Template/Campanhas.ejs",
+//         {
+//           domain: "teste",
+//           name: "teste",
+//           email: "matteus.isaque28@gmail.com",
+//           phone: "teste",
+//           message: "message",
+//         },
+//         function (err: any, data: any) {
+//           if (err) {
+//             console.log(err);
+//           } else {
+//             let transporter = node.createTransport({
+//               host: "smtp.hostinger.com",
+//               port: 465,
+//               // ssl: true,
+//               tls: true,
+//               auth: {
+//                 user: "formulario@isaquesestudios.com",
+//                 pass: "Mediterranio10@",
+//               },
+//             });
 
-            var mainOptions = {
-              from: "formulario@isaquesestudios.com",
-              to: "matteus.isaque28@gmail.com",
-              subject: "title",
-              html: data,
-            };
-            transporter.sendMail(mainOptions, function (err: any, info: any) {
-              if (err) {
-                console.log(err);
-              } else {
-                console.log("Message sent: " + info.response);
-              }
-            });
-          }
-        }
-      );
-      return "enviou";
-    }
+//             var mainOptions = {
+//               from: "formulario@isaquesestudios.com",
+//               to: "matteus.isaque28@gmail.com",
+//               subject: "title",
+//               html: data,
+//             };
+//             transporter.sendMail(mainOptions, function (err: any, info: any) {
+//               if (err) {
+//                 console.log(err);
+//               } else {
+//                 console.log("Message sent: " + info.response);
+//               }
+//             });
+//           }
+//         }
+//       );
+//       return "enviou";
+//     }
 
-    handle();
-}, 1800000);
+//     handle();
+// }, 1800000);
