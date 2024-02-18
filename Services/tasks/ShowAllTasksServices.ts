@@ -1,25 +1,23 @@
-import {
-  collection,
-  getDocs,
-  limit,
-  orderBy,
-  query,
-  where,
-} from "firebase/firestore";
 import { db } from "../../config/Firebase";
+import { Prisma } from "../../config/Prisma";
 
+type ShowAllTasksServicesProps = {
+  includes: any;
+};
 
 class ShowAllTasksServices {
-  async handle() {
-    const QueryAllItens = query(
-      collection(db, "Tasks"),
-      orderBy("created_at", "desc"),
-      limit(14)
-    );
+  async handle({ includes }: ShowAllTasksServicesProps) {
 
-    const data:any = await getDocs(QueryAllItens);
+    const Includes = Boolean(includes)
+    
+    const AllTasks = await Prisma.tasks.findMany({
+      include: {
+        company: Includes,
+        Employee: Includes,
+      },
+    });
 
-    return data._snapshot.docChanges;
+    return AllTasks;
   }
 }
 

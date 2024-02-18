@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  company_name    String            @unique
+  owner           String
+  email           String?
+  number          String?
+  created_at      DateTime          @default(now())
+  updated_at      DateTime          @default(now())
+  PaymentPerMonth PaymentPerMonth[]
+  Tasks           Tasks[]
+}
+
+model Employee {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  number     String
+  email      String?
+  job        String
+  updated_at DateTime @default(now())
+  created_at DateTime @default(now())
+  Tasks      Tasks[]
+}
+
+model Tasks {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  status      String
+  title       String
+  description String
+  end_at      String
+  company     Company?  @relation(fields: [companyId], references: [id])
+  companyId   String?   @db.ObjectId
+  employeeId  String?   @db.ObjectId
+  Employee    Employee? @relation(fields: [employeeId], references: [id])
+}
+
+// criar pagamentos mensaias
+model PaymentPerMonth {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  payment_id  String?
+  company     Company? @relation(fields: [companyId], references: [id])
+  companyId   String?  @db.ObjectId
+  value       String?
+  pay_day     String
+  title       String
+  description String?
+  updated_at  DateTime @default(now())
+}
+
+// create month save value payment
+model AnnualBalance {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  janeiro   String
+  fevereiro String
+  marco     String
+  abril     String
+  maio      String
+  junho     String
+  julho     String
+  setembro  String
+  outrobro  String
+  novembro  String
+  dezembro  String
+  year      String
+}

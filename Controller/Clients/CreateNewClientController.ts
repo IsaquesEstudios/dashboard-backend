@@ -3,16 +3,15 @@ import { CreateNewClientServi } from "../../Services/Clients/CreateNewClientServ
 
 class CreateNewClientController {
   async execute(req: Request, res: Response) {
-    const { name, email, company, receive, maintenance } = req.body;
+    const { owner, company_name, email, number } = req.body;
 
     const createNewClientServices = new CreateNewClientServi();
 
     const CreateNewClient = await createNewClientServices.handle({
-      name,
+      owner,
+      company_name,
       email,
-      company,
-      receive,
-      maintenance,
+      number,
     });
 
     res.json(CreateNewClient);

@@ -1,13 +1,11 @@
-import { collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore";
 import { db } from "../../config/Firebase";
+import { Prisma } from "../../config/Prisma";
 
 class ShowAllClientServices {
   async handle() {
-    const a = collection(db, "Clientes")
+    const AllClient = await Prisma.company.findMany();
 
-    const value = query(a, where("name", "==", "primeiro"))
-
-    return value
+    return AllClient;
   }
 }
 

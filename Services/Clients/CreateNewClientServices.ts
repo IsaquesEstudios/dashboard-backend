@@ -1,48 +1,29 @@
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
-import { db } from "../../config/Firebase";
+import { Prisma } from "../../config/Prisma";
 
 interface CreateNewClientOptionInterface {
-  name: string;
+  owner: string;
+  company_name: string;
   email: string;
-  company: string;
-  receive: [
-    service: {
-      name: string;
-      value: number;
-      frequency: string;
-      status: string;
-      paid: boolean;
-      date: Date;
-    }
-  ];
-  maintenance: [
-    item: {
-      name: string;
-      value: number;
-      date: Date;
-    }
-  ];
+  number: string;
 }
 
 class CreateNewClientServi {
   async handle({
-    name,
+    owner,
+    company_name,
     email,
-    company,
-    receive,
-    maintenance,
+    number,
   }: CreateNewClientOptionInterface) {
-
-    const Clients = await addDoc(collection(db, "Clients"), {
-      name: name,
-      email: email,
-      company: company,
-      receive: receive,
-      maintenance: maintenance
+    const newUser = await Prisma.company.create({
+      data: {
+        owner: owner,
+        company_name: company_name,
+        email: email,
+        number: number,
+      },
     });
 
-
-    return Clients
+    return newUser;
   }
 }
 

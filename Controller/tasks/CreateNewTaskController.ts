@@ -3,16 +3,18 @@ import { CreateNewTaskServices } from "../../Services/tasks/CreateNewTaskService
 
 class CreateNewTaskController {
   async execute(req: Request, res: Response) {
-    const { titulo, description, client, finishes, employee } = req.body;
+    const { title, description, end_at, status, company_id, employee_id } =
+      req.body;
 
     const createNewTaskServices = new CreateNewTaskServices();
 
     const createNewTask = await createNewTaskServices.handle({
-      titulo,
+      title,
       description,
-      finishes,
-      client,
-      employee,
+      end_at,
+      status,
+      company_id,
+      employee_id,
     });
 
     res.json(createNewTask);

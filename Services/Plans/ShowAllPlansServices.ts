@@ -19,7 +19,7 @@ class ShowAllPlansServices {
     offset,
     limit,
   }: ShowAllPlansServicesType) {
-    const Plans = await MercadoPagoApi.get("/preapproval_plan/search", {
+    const { data } = await MercadoPagoApi.get("/preapproval_plan/search", {
       params: {
         status: status,
         q: q,
@@ -30,8 +30,25 @@ class ShowAllPlansServices {
       },
     });
 
+    const PlansValue = data.results.map((item: any, index: number) => {
+      const value = item.auto_recurring.transaction_amount;
+      const subscribed = item.subscribed;
 
-    return Plans.data;
+      const results = value * subscribed;
+
+      return results;
+    });
+
+    const AllPlansValue = PlansValue.reduce((item: any, index: any) => {
+      return item + index;
+    }).toLocaleString("pt-br", { style: "currency", currency: "BRL" });
+
+    const Plans = {
+      data,
+      PlansValue,
+      AllPlansValue,
+    };
+    return Plans;
   }
 }
 

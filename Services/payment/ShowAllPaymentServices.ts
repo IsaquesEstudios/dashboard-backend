@@ -32,21 +32,30 @@ class ShowAllPaymentServices {
     const currentMonth = allReceivedPayment.filter(
       (item: any) => new Date(item.date_created).getMonth() + 1 == Month
     );
+    // 837546
+    // filter user payment
+    const filterUser = allReceivedPayment.filter(
+      (item:any) => item.point_of_interaction.transaction_data.bank_info?.payer.account_id 
+      // .transaction_data.bank_info.payer.account_id == 837546
+    )
 
     // separar valores em objeto
     const allCurrentValueMonth = currentMonth.map((item: any, _: number) => {
       return item.transaction_amount;
     });
 
-    const totalValueMonth = allCurrentValueMonth.reduce((acc: any, value: number) => {
-      return acc + value;
-    });
+    const totalValueMonth = allCurrentValueMonth.reduce(
+      (acc: any, value: number) => {
+        return acc + value;
+      }
+    );
 
     const payments = {
       allReceivedPayment,
       currentMonth,
       totalValueMonth,
-    }
+      filterUser
+    };
 
     return payments;
   }

@@ -1,37 +1,41 @@
-import { addDoc, collection } from "firebase/firestore";
 import { Prisma } from "../../config/Prisma";
 
-type CreateNewTaskServicesType = {
+type UpdateTaskServicesType = {
+  id: string;
+  company_id: any;
+  employee_id: any;
   status: string;
   title: string;
   description: string;
   end_at: string;
-  company_id: string;
-  employee_id: string;
 };
 
-class CreateNewTaskServices {
+class UpdateTaskServices {
   async handle({
-    status,
+    id,
     title,
     description,
+    status,
     end_at,
     company_id,
     employee_id,
-  }: CreateNewTaskServicesType) {
-    const TaskCreate = await Prisma.tasks.create({
+  }: UpdateTaskServicesType) {
+    const UpdateTask = Prisma.tasks.updateMany({
+      where: {
+        id: id,
+      },
       data: {
         title: title,
-        status: status,
         description: description,
+        status: status,
         end_at: end_at,
         companyId: company_id,
         employeeId: employee_id,
       },
     });
 
-    return TaskCreate;
+    return UpdateTask;
   }
 }
 
-export { CreateNewTaskServices };
+export { UpdateTaskServices };
