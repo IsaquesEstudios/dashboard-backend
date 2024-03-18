@@ -9,10 +9,8 @@ import { ShowAllPlansController } from "./Controller/Plans/ShowAllPlansControlle
 import { ShowPlanController } from "./Controller/Plans/ShowPlanController";
 import { CreateNewPaymentController } from "./Controller/payment/CreateNewPaymentController";
 import { ShowAllPaymentController } from "./Controller/payment/ShowAllPaymentController";
-import { ShowPaymentServices } from "./Services/payment/ShowPaymentServices";
 import { ShowPaymentController } from "./Controller/payment/ShowPaymentController";
 
-import { CreateNewClientServi } from "./Services/Clients/CreateNewClientServices";
 import { CreateNewClientController } from "./Controller/Clients/CreateNewClientController";
 import { ShowAllClientsController } from "./Controller/Clients/ShowAllClientController";
 import { CreateNewTaskController } from "./Controller/tasks/CreateNewTaskController";
@@ -25,7 +23,10 @@ import { UpdateTaskController } from "./Controller/tasks/UpdateTaskController";
 import { ShowAllPaymentPerMonthController } from "./Controller/paymentPerMonth/ShowAllPaymentPerMonthController";
 import { UpdatePaymentPerMonthController } from "./Controller/paymentPerMonth/UpdatePaymentPerMonthController";
 import { DeletePaymentPerMonthController } from "./Controller/paymentPerMonth/DeletePaymentPerMonthController";
+import { ChargeByEmailController } from "./Controller/paymentPerMonth/CargeByEmailController";
+import { FirebaseCreateNewEmployeeController } from "./Controller/firebase/Employee/CreateNewEmployeeController";
 // import { UpdateTaskController } from "./Controller/tasks/UpdateTaskController";
+
 
 //authenticated
 // const ShowUser = new ShowUserController();
@@ -63,11 +64,19 @@ const PaymentYear = new PaymentYearController();
 
 // handle paymentPerMonth
 const CreatePaymentPerMonth = new CreatePaymentPerMonthController()
+const ChargeByEmail = new ChargeByEmailController()
 const ShowAllPayment = new ShowAllPaymentPerMonthController()
 const UpdatePaymentPerMonth = new UpdatePaymentPerMonthController()
 const DeletePerMonth = new DeletePaymentPerMonthController()
 
+
+// ---------------------------------------------------------------- fire base ----------------------------------------------------------------
+
+//creaate employee
+const FirebaseCreateEmployee = new FirebaseCreateNewEmployeeController()
+
 const router = Router();
+
 
 // Authenticate
 // router.get("/auth/show", ShowUser.execute);
@@ -105,8 +114,12 @@ router.get("/data/payments/year", PaymentYear.execute);
 
 // handle payment
 router.post("/payment-per-month/payment", CreatePaymentPerMonth.execute)
+router.get("/payment-per-month/charge-by-email", ChargeByEmail.execute)
 router.get("/payment-per-month/show/all", ShowAllPayment.execute)
 router.put("/payment-per-month/update/:id", UpdatePaymentPerMonth.execute)
 router.delete("/payment-per-month/delete", DeletePerMonth.execute)
+
+// ---------------------------------------------------------------- firebase ----------------------------------------------------------------
+router.post("/firebase/employee/create", FirebaseCreateEmployee.execute)
 
 export { router };

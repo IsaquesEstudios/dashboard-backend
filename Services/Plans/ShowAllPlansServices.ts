@@ -1,5 +1,6 @@
 import { query } from "express";
 import { MercadoPagoApi } from "../../config/ApiMercadoPago";
+import { Prisma } from "../../config/Prisma";
 
 type ShowAllPlansServicesType = {
   status?: string;
@@ -29,6 +30,9 @@ class ShowAllPlansServices {
         limit: limit,
       },
     });
+
+    const FindPaymentsPerMonth = await Prisma.paymentPerMonth.findMany();
+
 
     const PlansValue = data.results.map((item: any, index: number) => {
       const value = item.auto_recurring.transaction_amount;

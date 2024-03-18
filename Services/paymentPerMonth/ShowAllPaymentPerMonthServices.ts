@@ -12,6 +12,10 @@ class ShowAllPaymentPerMonthServices {
       return parseFloat(item.value);
     });
 
+    if (AllValuesArray.length === 0) {
+      return 0;
+    }
+
     const AllValuePerMonth = AllValuesArray.reduce((item: any, value: any) => {
       return item + value;
     }).toLocaleString("pt-br", { style: "currency", currency: "BRL" });

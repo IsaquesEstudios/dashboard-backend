@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dashboard-isaques-estudios",
+  "private_key_id": "34262a34fc9aa10c519822bd8761b6afea213428",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDCvDj6ZjW1kFp6\nNPRn/zefhiBhEehFXoPf6CdpPTTMXQQX/zUiBk337aKflmVkngdpUfY7hrwNF2d3\nK9aYmOiFlY5jxhPuWgIFUiXLcbWo2jxVk2fIsmnG9NZhbGLSUHQXLS3nDhNtYC1Q\nhjoBIN377crisM602uUBuEdREzoJNJ78OGXnLC2TWM4Q1r5Q4IgNwlcdyuNcwU83\nv5bJ3VIUF5sOnkw5fah+BWS0jx1w9RP9OoybXCoN/oT5VsqQUPIZgl0yWS2OVNO1\nVdPcyX0I7KvZwR0dY83gyQMWlzBZn9R3K9nheWYQqciUYWYCOvN7n+CkiNdZGrtt\ndruJ2OnrAgMBAAECggEAOWp7tkCKl3TvaFbStRMH2G4Yf+ZiwIlEgrEVZa8ZMSQ/\nv7+Mb/LB7FbRexJB5O+/Katz2Us5iPacmAOB604ySKi26e4OFFnPfLgi0qA9OoLW\nBTlIAWGxVGr+Bo2JeY8lG2xDu3tn+PjBg5t/4LNLICuVhU8yMxrTKLWnuVzc4Ldy\nAf4vWYDdipSfjeLXqkXRQNJi4f0HrCtMHAeQwqWp704FV5LHt3NhAeJERLrydaH8\na3sTaaZRV1p/gqbZZZstpCbKNkOpyjtWz6JXIrv1t/Gm4XIFRjDfTnagvYDRINu3\nTmz7W3N7AIFoRWvI5Lr+cBMWPT3dkE4fW50Asf5WoQKBgQDzAKYm75I6x7iRd4Eo\nzhHTCLqpUfUqpzLIqK+Q4LWZOlwdaT9Q+8puetqJxe+oaTxE7zKhSVpgOwEnGymL\nyVT8G2CNH615HCE9BH4GTgJhm2UPzwyMm+wq+KdproS6cvrT/2iUr7Hge42OIN95\niQnw2sA9+q+QM/jn1ajieeJqsQKBgQDNJqp8cbWmfdrzvSqIUGCeYf/Myuv/JgzA\n1aDRe9mJAsANjl69NWsmH3nJmmmt276O1VWOffSoxgxQD51/sE749Luzu9eLFfbK\nd1RUCrdBiB1OZCxp7GTKWzHrLJ5vd2z/l2+fVMwWJlxoJb0B+AU8MSs6Gi5ZTnHq\n/kayPpINWwKBgGN+Q4kzk8qvVVlx9ZcQcGnYbBzBasEQ/hD8SA3og1H+fBKqsfrl\nbOe5M1sviMWKeNu8mB1DXFaEMh+h1mvefgZO60Q80RkCNHW4LiVEsWLnbgSAAKJd\ngN/DOUBi7QMt6pb8PwSJvymrTLUBrp4jRsevuQBncJR5QxMg/unjf5mxAoGBAK78\nxT0izNv3zDRNbaMaVF+kncm0aPqZHRW64tLsvk/0zZaCkuL3Vq8M+BfzoyLOJku1\nQqYpX/A6BjSgLSrGW4ZVUmnr1t3nXTuz73VEMq4uCTldjtjG7+3/PaQoyfewOYQG\nSwrwDKj0Daw0THUKdoSyN/n2bQR2OgtE206cun2zAoGBAK6IwpiSZtzFYBbblvd3\n/F9mY672ku8sN0HwlJ51R4BrUWYRYswAu8KiVviXHptz5ct7+IXi2/LPbebXziiC\nPym/L9dlA2o+nzUHRT1ghS36ZFO48WwKsVIbW2QusAxhJ9f3wx4tz3Jdl1Es1tRA\nx6crPcaHa4IuF17odCZsmccM\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-h4vdp@dashboard-isaques-estudios.iam.gserviceaccount.com",
+  "client_id": "112521696572630787203",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-h4vdp%40dashboard-isaques-estudios.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

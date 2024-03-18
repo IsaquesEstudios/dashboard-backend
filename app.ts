@@ -1,5 +1,3 @@
-import { Request, Response } from "express";
-import { MercadoPagoApi } from "./config/ApiMercadoPago";
 import cors from "cors";
 import express from "express";
 import DotEnv from "dotenv";

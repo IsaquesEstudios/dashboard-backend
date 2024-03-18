@@ -1,32 +1,45 @@
-import ejs from 'ejs'
-import nodemailer from 'nodemailer'
+import ejs from "ejs";
+import nodemailer from "nodemailer";
 
-const node: any = nodemailer
+const node: any = nodemailer;
 
 interface TiConnectedServicesType {
-  emailTo: string,
-  title: string,
-  domain: string,
-  name: string,
-  email: string,
-  phone: string,
-  state: string,
-  city: string,
-  branches: number,
-  companyName: string,
-  message: string
+  emailTo: string;
+  title: string;
+  domain: string;
+  name: string;
+  email: string;
+  phone: string;
+  state: string;
+  city: string;
+  branches: number;
+  companyName: string;
+  message: string;
 }
 
 class CampanhasServices {
-  async handle({ emailTo, title, domain, name, email, phone, state, city, branches, companyName, message }: TiConnectedServicesType) {
-
-    ejs.renderFile(__dirname + "/../../Template/Campanhas.ejs", {
-      domain: domain,
-      name: name,
-      email: email,
-      phone: phone,
-      message: message
-    },
+  async handle({
+    emailTo,
+    title,
+    domain,
+    name,
+    email,
+    phone,
+    state,
+    city,
+    branches,
+    companyName,
+    message,
+  }: TiConnectedServicesType) {
+    ejs.renderFile(
+      __dirname + "/../../Template/Campanhas.ejs",
+      {
+        domain: domain,
+        name: name,
+        email: email,
+        phone: phone,
+        message: message,
+      },
       function (err, data) {
         if (err) {
           console.log(err);
@@ -37,28 +50,29 @@ class CampanhasServices {
             // ssl: true,
             tls: true,
             auth: {
-             user: "formulario@isaquesestudios.com",
-              pass: "Mediterranio10@", 
-            }
+              user: "formulario@isaquesestudios.com",
+              pass: "Mediterranio10@",
+            },
           });
 
           var mainOptions = {
-            from: 'formulario@isaquesestudios.com',
+            from: "formulario@isaquesestudios.com",
             to: emailTo,
             subject: title,
-            html: data
+            html: data,
           };
           transporter.sendMail(mainOptions, function (err: any, info: any) {
             if (err) {
               console.log(err);
             } else {
-              console.log('Message sent: ' + info.response);
+              console.log("Message sent: " + info.response);
             }
           });
         }
-      });
-    return ("enviou");
+      }
+    );
+    return "enviou";
   }
 }
 
-export { CampanhasServices }
+export { CampanhasServices };

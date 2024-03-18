@@ -18,8 +18,10 @@ model Company {
   number          String?
   created_at      DateTime          @default(now())
   updated_at      DateTime          @default(now())
+  payments        Payment[]
   PaymentPerMonth PaymentPerMonth[]
   Tasks           Tasks[]
+  paymentId       String            @db.ObjectId
 }
 
 model Employee {
@@ -33,6 +35,7 @@ model Employee {
   Tasks      Tasks[]
 }
 
+// 
 model Tasks {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   status      String
@@ -58,19 +61,22 @@ model PaymentPerMonth {
   updated_at  DateTime @default(now())
 }
 
-// create month save value payment
-model AnnualBalance {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  janeiro   String
-  fevereiro String
-  marco     String
-  abril     String
-  maio      String
-  junho     String
-  julho     String
-  setembro  String
-  outrobro  String
-  novembro  String
-  dezembro  String
-  year      String
+model Payment {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  month             String
+  date_approved     String
+  status            String
+  total_paid_amount String
+  transaction_id    String
+  issuer_id         String
+  Company           Company? @relation(fields: [companyId], references: [id])
+  companyId         String?  @db.ObjectId
+}
+
+model SaveTotalForMonth {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  identifier  Int     @unique
+  month       String
+  year        Int
+  total_month String?
 }
